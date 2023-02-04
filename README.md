@@ -3,7 +3,7 @@ A weather app to practice utilizing third party APIs.
 
 
 ## What
-### A weather app for travel planning. 
+### A weather app for planning travel. 
 Search any city to see the upcoming weather forecast.<br><br>
 
 

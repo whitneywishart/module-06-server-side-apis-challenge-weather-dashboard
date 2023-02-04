@@ -1,3 +1,63 @@
 * {
     font-family: sans-serif;
+
+}
+
+
+body {
+    margin: .5rem;
+    border: #707070 2px solid;
+    border-radius: 5px;
+    padding: .5rem;
+    min-height: 70vh;
+}
+
+
+#banner {
+    background-image: linear-gradient(to right, #465ab8, #261360);
+    padding-left: 15px;
+    padding: 1rem 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+}
+
+h1 {
+    color: white;
+    font-weight: 700;
+    
+}
+
+h2 {
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.btn {
+    background-color: #6991e3;
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+
+
+}
+
+#result-button {
+    background-color: #aeaeae;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.city-container {
+    border: #707070 2px solid;
+    padding: 1rem;
+}
+
+
+#five-day-forecast {
+    background-color: #323d4f;
+    color: white;
+    margin: 1rem;
+    padding: 1rem;
 }
