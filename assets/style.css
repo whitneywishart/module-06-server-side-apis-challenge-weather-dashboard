@@ -12,6 +12,9 @@ body {
     min-height: 70vh;
 }
 
+#current-day {
+    color: white;
+}
 
 
 #banner {
@@ -26,12 +29,13 @@ body {
 h1 {
     color: white;
     font-weight: 700;
+    text-align: center;
 
 }
 
 h2 {
     color: black;
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
@@ -52,11 +56,11 @@ button:hover {
 
 button:active {
     box-shadow: inset 2px 2px #6991e3, inset -2px -2px #6991e3;
-    
+
 }
 
 button:focus {
-     outline: none;
+    outline: none;
 }
 
 #history {
@@ -76,24 +80,32 @@ button:focus {
 #history:hover {
     background-color: #737373;
     color: white;
-    
+
 }
 
 #history:active {
     box-shadow: inset 2px 2px #aeaeae, inset -2px -2px #aeaeae;
 
-    
+
 }
 
 #history:focus {
-     outline: none;
+    outline: none;
+}
+
+ul {
+    padding-left: 0;
 }
 
 
 
-.city-container {
-    border: #707070 2px solid;
-    padding: 1rem;
+.current-forecast-container {
+    border: #707070 1px solid;
+    margin-bottom: 1rem;
+}
+
+.current-forecast-container>div {
+    padding: .5rem;
 }
 
 
@@ -106,12 +118,14 @@ button:focus {
     margin-bottom: 1rem;
 }
 
+#current-city-display {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
 
-#five-day-forecast {
+.forecast {
     background-color: #323d4f;
     color: white;
     margin: 1rem;
     padding: 1rem;
 }
-
-
