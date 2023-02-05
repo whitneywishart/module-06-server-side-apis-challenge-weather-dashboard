@@ -13,6 +13,7 @@ body {
 }
 
 
+
 #banner {
     background-image: linear-gradient(to right, #465ab8, #261360);
     padding-left: 15px;
@@ -25,7 +26,7 @@ body {
 h1 {
     color: white;
     font-weight: 700;
-    
+
 }
 
 h2 {
@@ -34,24 +35,75 @@ h2 {
     font-weight: 700;
 }
 
-.btn {
+button {
     background-color: #6991e3;
-    color: white;
     width: 100%;
     font-size: 1.2rem;
-
-
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: .75rem;
+    cursor: pointer;
 }
 
-#result-button {
+button:hover {
+    background-color: #465ab8;
+}
+
+button:active {
+    box-shadow: inset 2px 2px #6991e3, inset -2px -2px #6991e3;
+    
+}
+
+button:focus {
+     outline: none;
+}
+
+#history {
     background-color: #aeaeae;
-    color: black;
+    width: 100%;
     font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    padding: .75rem;
+    margin-top: .75rem;
+    text-align: center;
+    cursor: pointer;
 }
+
+
+
+#history:hover {
+    background-color: #737373;
+    color: white;
+    
+}
+
+#history:active {
+    box-shadow: inset 2px 2px #aeaeae, inset -2px -2px #aeaeae;
+
+    
+}
+
+#history:focus {
+     outline: none;
+}
+
+
 
 .city-container {
     border: #707070 2px solid;
     padding: 1rem;
+}
+
+
+#city-search {
+    color: #707070;
+    padding: .5rem;
+    border-radius: 5px;
+    border: #707070 1px solid;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 
@@ -61,3 +113,5 @@ h2 {
     margin: 1rem;
     padding: 1rem;
 }
+
+
