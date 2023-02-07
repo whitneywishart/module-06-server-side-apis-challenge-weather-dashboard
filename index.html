@@ -18,16 +18,16 @@
 <body>
 
     <!-- Bootstrap container -->
-    <div class="container-fluid">
-        <div class="row" id="banner">
-            <header>
-                <h1>Weather Dashboard</h1>
-            
-            </header>
-        </div>
-        <main>
+    <div id="banner">
+        <header>
+            <h1>Weather Dashboard</h1>
+        </header>
+    </div>
+
+    <main>
+        <div class="container-fluid">
             <!-- Left column -->
-            <div class="row ">
+            <div class="row">
                 <div class="col-3">
 
                     <!-- Form -->
@@ -40,35 +40,36 @@
                         <input type="text" class="form-input w-100" id="city-search" name="city-search-name"
                             placeholder="Search for a city"><br>
 
-                        <!-- Form submit button -->
-                        <button class="submit" id="submit-button">Search</button>
+                        <!-- Form search button -->
+                        <button id="search-button">Search</button>
                     </form>
-
                     <hr>
+
                     <!-- Previous search result buttons -->
                     <ul id="city-list"></ul>
                 </div>
 
+
                 <!-- Right column -->
-                <div class="col-8">
+                <div class="col">
                     <div class="current-forecast-container">
-                        <div id="current-city-display"></div>
-                        <div id="current-temp-display"></div>
-                        <div id="current-wind-display"></div>
-                        <div id="current-humidity-display"></div>
+                        <div class="row">
+                            <div class="col-md-auto" id="current-city-display">
+                            </div>
+                            <div class="col"><img id="icon" width="40">
+                            </div>
+                        </div>
+                        <div class="display" id="current-temp-display"></div>
+                        <div class="display" id="current-wind-display"></div>
+                        <div class="display" id="current-humidity-display"></div>
                     </div>
-                    <div class="row"></div>
                     <h2>5-Day Forecast:</h2>
                     <div class="row">
-                        <div class="col forecast" id="one-day-forecast">col</div>
-                        <div class="col forecast" id="two-day-forecast">col</div>
-                        <div class="col forecast" id="three-day-forecast">col</div>
-                        <div class="col forecast" id="four-day-forecast">col</div>
-                        <div class="col forecast" id="five-day-forecast">col</div>
-                    </div>
-                </div>
-            </div>
-    </div>
+                        <div class="col forecast" id="one-day-forecast"></div>
+                        <div class="col forecast" id="two-day-forecast"></div>
+                        <div class="col forecast" id="three-day-forecast"></div>
+                        <div class="col forecast" id="four-day-forecast"></div>
+                        <div class="col forecast" id="five-day-forecast"></div>
     </main>
 
     <!-- dayjs js -->

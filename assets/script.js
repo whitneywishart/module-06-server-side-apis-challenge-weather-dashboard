@@ -1,29 +1,29 @@
-//WHEN I search for a city
-//THEN I am presented with current and future conditions for that city and that city is added to the search history
-
-//global variable for current time
+// Variables
 var now = dayjs().format("HH");
 var today = dayjs();
-
-//add current date at top of page
-$("#current-day").text(today.format("MMM D, YYYY, h:mm A"));
-
-
-//OpenWeather API key
 var apiKey = "3b514f9dc14d94faaf7e8d6ab26cccc1";
+var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []
+var searchButton = document.getElementById("search-button");
+var searchedCity = document.getElementById("city-search").value;
+var currentCityName = document.getElementById("current-city-display");
+var temp = document.getElementById("current-temp-display");
+var wind = document.getElementById("current-wind-display");
+var humidity = document.getElementById("current-humidity-display");
+var icon = document.getElementById("icon");
+var cityList = document.getElementById("city-list");
 
-//City search field and previous city search list variables
-var searchForm = $("#city-form");
-var cityList = $("#city-list");
-var currentCityDisplay = $("#current-city-display");
+
+// When search button is clicked, perform the search function
+searchButton.addEventListener("click", currentSearchDisplay);
 
 
-//Function to process search entries
-function renderSearchEntry(event) {
+// Current weather display function
+function currentSearchDisplay(event) {
     event.preventDefault();
 
+    //Alert if no city name entered
     //Select form element by name attribute and grab value
-    var citySearch = document.querySelector('input[name="city-search-name"]').value;
+    var citySearch = document.getElementById("city-search").value;
 
 
     //Alert if no city name entered
@@ -32,41 +32,47 @@ function renderSearchEntry(event) {
         return;
     }
 
+    // Grab search input for city name
+    var searchedCity = document.getElementById("city-search").value || event.target.innerText;
+    searchHistory.push(searchedCity)
 
-    //Add searched cities to local storage
-    localStorage.setItem("City", citySearch);
+
+    // Send search history to local storage and stringify
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    // console.log(searchHistory);
+
+
+    // Fetch
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchedCity + "&appid=" + apiKey;
+
+    fetch(queryURL)
+        .then(response => response.json())
+        .then(data => {
+
+            // Current city display
+            var cityName = data['name'];
+            var weatherIcon = 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+            var tempIndex = data['main']['temp'];
+            var windIndex = data['wind']['speed'];
+            var humidityIndex = data['main']['humidity'];
+
+            currentCityName.innerHTML = cityName + " " + "(" + today.format("M/D/YYYY") + ")";
+            icon.innerHTML = weatherIcon;
+            icon.setAttribute('src', weatherIcon);
+            temp.innerHTML = "Temp: " + Number(1.8 * (tempIndex - 273) + 32).toFixed(1) + "°F";
+            wind.innerHTML = "Wind: " + windIndex + " MPH";
+            humidity.innerHTML = "Humidity: " + humidityIndex + "%";
+
+        })
 
     //Add search result to search history buttons
-    cityList.append('<li id="history">' + citySearch + '</li>');
-    currentCityDisplay.append(" " + citySearch + " " + "(" + today.format("M/D/YYYY") + ")");
-
+    $(cityList).append('<li id="history">' + searchedCity + '</li>');
 
     //Clear the form after submit button click
     $('input[name="city-search-name"]').val("");
-    // console.log(citySearch);
-
-
-    //FETCH WEATHER
-    //OpenWeather query URL
-    var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + citySearch + "&appid=" + apiKey;
-
-    var iconURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey;
-
-    fetch(queryURL)
-        .then((response) => response.json())
-    // .then((data) => console.log(data));
-
-    fetch(iconURL)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-
-    //get local storage and display on expected row
-    $("#city-name").val(localStorage.getItem("City"));
 
 }
 
-//List of previously searched cities as buttons
-searchForm.on("submit", renderSearchEntry);
 
 
 
