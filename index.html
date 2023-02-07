@@ -52,24 +52,35 @@
 
                 <!-- Right column -->
                 <div class="col">
-                    <div class="current-forecast-container">
-                        <div class="row">
-                            <div class="col-md-auto" id="current-city-display">
-                            </div>
-                            <div class="col"><img id="icon" width="40">
-                            </div>
+
+                    <div class="row current-container">
+                        <div class="col-md-auto" id="current-city-display">
+                        </div>
+                        <div class="col"><img id="icon" width="40">
                         </div>
                         <div class="display" id="current-temp-display"></div>
                         <div class="display" id="current-wind-display"></div>
-                        <div class="display" id="current-humidity-display"></div>
+                        <div class="display" id="current-humidity-display">
+                        </div>
                     </div>
-                    <h2>5-Day Forecast:</h2>
+
+                    <!-- 5 day forecast containers -->
                     <div class="row">
-                        <div class="col forecast" id="one-day-forecast"></div>
-                        <div class="col forecast" id="two-day-forecast"></div>
-                        <div class="col forecast" id="three-day-forecast"></div>
-                        <div class="col forecast" id="four-day-forecast"></div>
-                        <div class="col forecast" id="five-day-forecast"></div>
+                        <div class="col">
+                            <h2 id="forecast-header">5-Day Forecast:</h2>
+                            <div class="row forecast">
+
+                                <div class="col" id="forecast-date-one"></div>
+                                <div></div><img id="day-one-icon" />
+                            </div>
+                            <div class="row daily-forecast" id="day-one-temp"></div>
+                            <div class="row daily-forecast" id="day-one-wind"></div>
+                            <div class="row daily-forecast  five-day-forecast-container" id="day-one-humidity"></div>
+                        </div>
+
+                    </div>
+
+
     </main>
 
     <!-- dayjs js -->

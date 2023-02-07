@@ -5,10 +5,10 @@
 
 
 body {
-    margin: .5rem;
+    margin: 1rem;
     border: #707070 2px solid;
     border-radius: 5px;
-    padding: .5rem;
+    padding: .75rem;
     min-height: 70vh;
 }
 
@@ -31,12 +31,18 @@ h1 {
     font-weight: 700;
     text-align: center;
 
+
 }
 
 h2 {
     color: black;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
+
+}
+
+#forecast-header {
+    margin: 1rem 0rem .5rem -15px;
 }
 
 button {
@@ -97,13 +103,9 @@ ul {
     padding-left: 0;
 }
 
-
-
-.current-forecast-container {
+.current-container {
     border: #707070 1px solid;
     min-height: 15vh;
-    padding: 1rem 0rem 0rem .5rem;
-    margin-bottom: 1rem;
 }
 
 .display {
@@ -123,12 +125,39 @@ ul {
 #current-city-display {
     font-size: 2.25rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin: 0px 0px 1rem 12px;
+    padding: 1rem 0px 0px 0px;
+}
+
+#icon {
+    padding-top: .75rem;
 }
 
 .forecast {
     background-color: #323d4f;
     color: white;
-    margin: 1rem;
-    padding: 1rem;
+    padding-top: .75rem;
+
+}
+
+.daily-forecast {
+    background-color: #323d4f;
+    color: white;
+    padding: .5rem .5rem .75rem .75rem;
+
+}
+
+#forecast-date-one {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+#day-one-icon {
+    width: 5%;
+    padding-top: .5rem;
+}
+
+.five-day-forecast-container {
+    padding-bottom: 1rem;
+
 }
