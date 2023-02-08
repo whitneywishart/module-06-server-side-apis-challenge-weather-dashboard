@@ -30,16 +30,32 @@ h1 {
     color: white;
     font-weight: 700;
     text-align: center;
-
-
 }
+
+
+
 
 h2 {
     color: black;
     font-size: 1.5rem;
     font-weight: 700;
-
 }
+
+@media screen and (max-width: 768px) {
+
+    h2,
+    #search-button {
+        font-size: 80%;
+
+    }
+}
+
+@media screen and (max-width : 768px) {
+    ::placeholder {
+        color: white;
+    }
+}
+
 
 #forecast-header {
     margin: 1rem 0rem .5rem -15px;
@@ -129,35 +145,49 @@ ul {
     padding: 1rem 0px 0px 0px;
 }
 
-#icon {
-    padding-top: .75rem;
-}
+
 
 .forecast {
-    background-color: #323d4f;
     color: white;
     padding-top: .75rem;
 
 }
 
 .daily-forecast {
-    background-color: #323d4f;
     color: white;
-    padding: .5rem .5rem .75rem .75rem;
+    padding: .75rem .5rem .75rem .75rem;
 
 }
 
-#forecast-date-one {
+#forecast-date-one,
+#forecast-date-two,
+#forecast-date-three,
+#forecast-date-four,
+#forecast-date-five {
     font-weight: bold;
     font-size: 1.25rem;
 }
 
-#day-one-icon {
-    width: 5%;
+#day-one-icon,
+#day-two-icon,
+#day-three-icon,
+#day-four-icon,
+#day-five-icon {
+    width: 25%;
     padding-top: .5rem;
 }
 
 .five-day-forecast-container {
     padding-bottom: 1rem;
+
+}
+
+.day:not(:first-child) {
+    margin-left: 2%;
+}
+
+.day {
+    background-color: #323d4f;
+
 
 }
