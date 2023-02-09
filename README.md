@@ -16,6 +16,6 @@ https://whitneywishart.github.io/module-06-server-side-apis-challenge-weather-da
 
 
 ## Screenshot
-<img src= ".\assets\screenshot.png" width="650">
+<img src= ".\assets\app-screenshot.png" width="650">
 
 
