@@ -18,7 +18,8 @@ var cityList = document.getElementById("city-list");
 searchButton.addEventListener("click", currentSearchDisplay);
 
 
-// Current weather display function
+
+// Weather display function
 function currentSearchDisplay(event) {
     event.preventDefault();
 
@@ -40,10 +41,18 @@ function currentSearchDisplay(event) {
 
     // Send search history to local storage and stringify
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-    // console.log(searchHistory);
+
+    //Add search result to search history buttons
+    $(cityList).append('<li id="history">' + searchedCity + '</li>');
 
 
-    // Fetch current
+
+    //Clear the form after submit button click
+    $('input[name="city-search-name"]').val("");
+
+
+
+    // Fetch current search
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchedCity + "&appid=" + apiKey;
 
 
@@ -76,7 +85,7 @@ function currentSearchDisplay(event) {
             fetch(forecastURL)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
 
                     // 5 day forecast DOM variables
                     var forecastDayOneCityDate = document.getElementById("forecast-date-one");
@@ -208,21 +217,48 @@ function currentSearchDisplay(event) {
                     forecastDayFiveWind.innerHTML = "Wind: " + forecastDayFiveDefaultWind + " MPH";
                     forecastDayFiveHumidity.innerHTML = "Humidity: " + forecastDayFiveDefaultHumidity + "%";
 
+                    // Search history buttons
+                    // Convert history object to array
+                    var searchHistoryArray = Array.from(searchHistory);
+
+                    // Declare variables for the last 10 searches
+                    var lastSearchItem0 = searchHistoryArray[searchHistoryArray.length - 1];
+                    var lastSearchItem1 = searchHistoryArray[searchHistoryArray.length - 2];
+                    var lastSearchItem2 = searchHistoryArray[searchHistoryArray.length - 3];
+                    var lastSearchItem3 = searchHistoryArray[searchHistoryArray.length - 4];
+                    var lastSearchItem4 = searchHistoryArray[searchHistoryArray.length - 5];
+                    var lastSearchItem5 = searchHistoryArray[searchHistoryArray.length - 6];
+                    var lastSearchItem6 = searchHistoryArray[searchHistoryArray.length - 7];
+                    var lastSearchItem7 = searchHistoryArray[searchHistoryArray.length - 8];
+                    var lastSearchItem8 = searchHistoryArray[searchHistoryArray.length - 9];
+                    var lastSearchItem9 = searchHistoryArray[searchHistoryArray.length - 10];
+
+                    // console.log(lastSearchItem0);
+                    // console.log(lastSearchItem1);
+                    // console.log(lastSearchItem2);
+                    // console.log(lastSearchItem3);
+                    // console.log(lastSearchItem4);
+                    // console.log(lastSearchItem5);
+                    // console.log(lastSearchItem6);
+                    // console.log(lastSearchItem7);
+                    // console.log(lastSearchItem8);
+                    // console.log(lastSearchItem9);
+
+                    // Event listener
+                    document.querySelector(".list-group").addEventListener("click", historySearchDisplay);
+
+                    // Function to return history search conditions
+                    function historySearchDisplay() {
+                        console.log(lastSearchItem0);
+
+                    }
+
+                    historySearchDisplay();
+
+
                 })
-
-
-            //Add search result to search history buttons
-            $(cityList).append('<li id="history">' + searchedCity + '</li>');
-
-            //Clear the form after submit button click
-            $('input[name="city-search-name"]').val("");
 
         }
 
         )
 }
-
-
-
-
-
