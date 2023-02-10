@@ -12,7 +12,7 @@ Practice common applications of JavaScript using server-side APIs.<br><br>
 
 
 ## Deployed URL
-https://whitneywishart.github.io/module-06-server-side-apis-weather-dashboard/<br><br>
+https://whitneywishart.github.io/module-06-server-side-apis-challenge-weather-dashboard/<br><br>
 
 
 ## Screenshot
