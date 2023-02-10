@@ -80,7 +80,7 @@ function currentSearchDisplay(event) {
 
 
 
-            var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
             fetch(forecastURL)
                 .then(response => response.json())
@@ -258,7 +258,7 @@ function currentSearchDisplay(event) {
                                 wind.innerHTML = "Wind: " + windIndex + " MPH";
                                 humidity.innerHTML = "Humidity: " + humidityIndex + "%";
 
-                                var historyForecastURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+                                var historyForecastURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
                                 fetch(historyForecastURL)
                                     .then(response => response.json())
