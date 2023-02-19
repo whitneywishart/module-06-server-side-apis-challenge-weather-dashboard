@@ -2,49 +2,72 @@
 var now = dayjs().format("HH");
 var today = dayjs();
 var apiKey = "3b514f9dc14d94faaf7e8d6ab26cccc1";
-var searchHistory = JSON.parse(localStorage.getItem("searchHistory"))
+var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []
 var searchButton = document.getElementById("search-button");
-var searchedCity = document.getElementById("city-search").value;
 var currentCityName = document.getElementById("current-city-display");
 var temp = document.getElementById("current-temp-display");
 var wind = document.getElementById("current-wind-display");
 var humidity = document.getElementById("current-humidity-display");
 var icon = document.getElementById("icon");
-var cityList = document.getElementById("city-list");
+var historyCityList = document.getElementById("city-list");
 
+
+
+
+// Current day weather display persist
+
+
+// Display current weather for history buttons
 
 
 // When search button is clicked, perform the search function
 searchButton.addEventListener("click", currentSearchDisplay);
 
 
-// Weather display function
+// Create and persist search history buttons
+function historyButtons() {
+    historyCityList.innerHTML = ""
+    for (var i = 0; i < searchHistory.length; i++) {
+        var historyButton = document.createElement("button");
+        historyButton.textContent = searchHistory[i]
+        historyCityList.appendChild(historyButton);
+    }
+}
+
+historyButtons()
+
+
+// Display current and forecasted weather
 function currentSearchDisplay(event) {
     event.preventDefault();
 
-    
+
     //Alert if no city name entered
     var citySearch = document.getElementById("city-search").value;
+
     if (!citySearch) {
         alert("Please enter a city name.");
         return;
     }
 
-    // Grab search input for city name
-    var searchedCity = document.getElementById("city-search").value
+    // Grab search input for city name and add to local storage
+    var searchedCity = document.getElementById("city-search").value;
     searchHistory.push(searchedCity)
 
 
     // Send search history to local storage and stringify
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
-    //Add search result to search history buttons
-    $(cityList).append('<li id="history">' + searchedCity + '</li>');
-
-
 
     //Clear the form after submit button click
     $('input[name="city-search-name"]').val("");
+
+
+    //Add search result to search history buttons
+    historyButtons()
+
+
+
 
 
 
@@ -77,12 +100,14 @@ function currentSearchDisplay(event) {
 
             var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
+
+            // 5 day forecast
             fetch(forecastURL)
                 .then(response => response.json())
                 .then(data => {
                     // console.log(data);
 
-                    // 5 day forecast DOM variables                
+                    // Date DOM variables                
                     var forecastDayOneCityDate = document.getElementById("forecast-date-one");
                     var forecastDayTwoCityDate = document.getElementById("forecast-date-two");
                     var forecastDayThreeCityDate = document.getElementById("forecast-date-three");
@@ -230,14 +255,21 @@ function currentSearchDisplay(event) {
                     forecastDayFiveHumidity.innerHTML = "Humidity: " + humidityMeasure[4] + "%";
 
 
-                    // Grab last searched city
 
-                    // var mostRecentSearchResult = document.getElementById("city-list").lastChild.innerHTML;
-                    // console.log(mostRecentSearchResult);
 
                 })
 
         }
 
         )
+
+
 };
+
+
+
+
+
+
+currentSearchDisplay();
+

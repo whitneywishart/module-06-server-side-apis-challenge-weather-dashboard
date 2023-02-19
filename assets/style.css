@@ -56,12 +56,16 @@ h2 {
     }
 }
 
+li {
+    list-style: none;
+}
+
 
 #forecast-header {
     margin: 1rem 0rem .5rem -15px;
 }
 
-button {
+#search-button {
     background-color: #6991e3;
     width: 100%;
     font-size: 1.2rem;
@@ -72,20 +76,20 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#search-button:hover {
     background-color: #465ab8;
 }
 
-button:active {
+#search-button:active {
     box-shadow: inset 2px 2px #6991e3, inset -2px -2px #6991e3;
 
 }
 
-button:focus {
+#search-button:focus {
     outline: none;
 }
 
-#history {
+button {
     background-color: #aeaeae;
     width: 100%;
     font-size: 1.2rem;
@@ -99,19 +103,19 @@ button:focus {
 
 
 
-#history:hover {
+button:hover {
     background-color: #737373;
     color: white;
 
 }
 
-#history:active {
+button:active {
     box-shadow: inset 2px 2px #aeaeae, inset -2px -2px #aeaeae;
 
 
 }
 
-#history:focus {
+button:focus {
     outline: none;
 }
 
