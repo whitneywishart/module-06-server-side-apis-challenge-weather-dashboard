@@ -13,6 +13,11 @@ var icon = document.getElementById("icon");
 var historyCityList = document.getElementById("city-list");
 var lastCity = searchHistory[searchHistory.length - 1];
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + lastCity + "&appid=" + apiKey;
+var modalBtn = document.getElementById("modal-btn")
+var modal = document.querySelector(".modal")
+var closeBtn = document.querySelector(".close-btn")
+
+
 
 
 
@@ -35,10 +40,16 @@ searchButton.addEventListener("click", addToStorage);
 
 // Add to storage function
 function addToStorage() {
+    //Alert if no city name entered
+    var citySearch = document.getElementById("city-search").value;
+    if (!citySearch) {
+        alert("Please enter a city name.");
+        return;
+    }
     // Grab search input for city name and add to local storage
     var searchedCity = document.getElementById("city-search").value;
     searchHistory.push(searchedCity)
-    // console.log(searchedCity);
+
     // Send search history to local storage and stringify
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
@@ -235,8 +246,6 @@ function weather() {
 }
 
 weather();
-
-
 
 
 // History button event listener
@@ -437,5 +446,6 @@ function historyWeather() {
     })
 }
 
-
 historyWeather();
+
+
