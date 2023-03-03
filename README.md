@@ -1,4 +1,4 @@
-# Module 6: Server-Side APIs Challenge - Weather Dashboard
+Server-Side APIs: Weather Dashboard
 A weather app to practice utilizing third party APIs.
 
 
@@ -12,7 +12,7 @@ Practice common applications of JavaScript using server-side APIs.
 
 
 ## Deployed URL
-https://whitneywishart.github.io/module-06-server-side-apis-challenge-weather-dashboard/
+https://whitneywishart.github.io/server-side-api-weather-dashboard/
 
 
 ## Screenshot
